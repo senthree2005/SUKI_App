@@ -1,0 +1,6 @@
+{
+  "name": "SUKI Marketplace - Tagum Palengke Direct Latag & Live Stream",
+  "description": "Hyper-local Filipino palengke live streaming, street food, and fresh direct-from-stall market delivery with tricycle express dispatch.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
