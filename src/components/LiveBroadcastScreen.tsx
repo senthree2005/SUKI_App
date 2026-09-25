@@ -137,9 +137,9 @@ export const LiveBroadcastScreen: React.FC<LiveBroadcastScreenProps> = ({
   };
 
   return (
-    <div className="flex flex-col w-full relative min-h-screen bg-[#161d18] text-white">
+    <div className="flex flex-col w-full h-screen relative bg-[#161d18] text-white">
       {/* Top Navigation Bar */}
-      <div className="fixed top-0 w-full z-50 pt-safe bg-[#f3fcf2]/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-[#e2ebe1] text-[#161d18]">
+      {/* <div className="fixed top-0 w-full z-50 pt-safe bg-[#f3fcf2]/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] border-b border-[#e2ebe1] text-[#161d18]">
         <div className="h-16 px-4 flex items-center justify-between max-w-lg mx-auto">
           <div className="flex items-center gap-2">
             <button
@@ -167,14 +167,14 @@ export const LiveBroadcastScreen: React.FC<LiveBroadcastScreenProps> = ({
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Broadcast Container */}
-      <main className="flex flex-col relative w-full pt-16 pb-6 bg-[#161d18] flex-1 max-w-lg mx-auto">
-        <div className="relative w-full overflow-hidden bg-black aspect-[9/18] min-h-[720px] max-h-[820px] rounded-2xl flex flex-col justify-between select-none shadow-2xl">
+      <main className="flex flex-wrap relative w-full h-full  bg-[#161d18] flex-1 max-w-lg min-h-dvh mx-auto">
+        <div className="relative w-full overflow-hidden bg-black aspect-[9/18] min-w-full min-h-[720px] max-h-full rounded-2xl flex flex-col justify-between select-none shadow-2xl">
           {/* Immersive Video Stream Background */}
           <div
-            className="absolute inset-0 w-full h-full bg-cover bg-center"
+            className="absolute inset-0 w-full  h-full bg-cover bg-center"
             style={{
               backgroundImage: `url('${vendor.streamImage || vendor.image}')`,
             }}
@@ -395,7 +395,7 @@ export const LiveBroadcastScreen: React.FC<LiveBroadcastScreenProps> = ({
             </div>
 
             {/* Pinned Live Product Showcase Card */}
-            <div className="w-full bg-white/95 backdrop-blur-md rounded-2xl p-3 shadow-2xl flex flex-col gap-2 text-[#161d18] border border-white">
+            <div className="w-full bg-[#f3fcf2]/95 backdrop-blur-md rounded-2xl p-3 shadow-2xl flex flex-col gap-2 text-[#161d18] border border-white">
               {/* Live Item Header */}
               <div className="flex items-center gap-2.5">
                 {/* Thumbnail */}
@@ -427,15 +427,34 @@ export const LiveBroadcastScreen: React.FC<LiveBroadcastScreenProps> = ({
                     <span className="text-[18px] font-extrabold text-[#004328]">
                       ₱{vendor.pinnedProduct.price}
                     </span>
+        
                     <span className="text-[11px] text-[#707971]">/ kg</span>
                     {vendor.pinnedProduct.originalPrice && (
                       <span className="text-[11px] line-through text-[#707971] ml-1">
                         ₱{vendor.pinnedProduct.originalPrice}
                       </span>
                     )}
+                                         
                   </div>
                 </div>
               </div>
+              {/* Live Stream Footnote */}
+        <div className=" flex items-center justify-between text-[#71ab87]">
+          <div className="flex items-center gap-1.5">
+            <span className="material-symbols-outlined text-[16px] text-[#71ab87]">
+              verified_user
+            </span>
+            <span className="text-[9px] font-bold">
+              Tagum Public Market Direct Latag
+            </span>
+          </div>
+          <div className="flex items-center gap-1 text-[#febb2d]">
+            <span className="material-symbols-outlined text-[16px]">speed</span>
+            <span className="text-[9px] font-extrabold">
+              15 min delivery via Tricycle
+            </span>
+          </div>
+        </div>
 
               {/* Quantity Stepper & Instant Buy Action */}
               <div className="flex items-center justify-between gap-2 pt-1">
@@ -471,6 +490,7 @@ export const LiveBroadcastScreen: React.FC<LiveBroadcastScreenProps> = ({
                 </button>
               </div>
             </div>
+            
 
             {/* Quick Chat Input Bar & Suki Heart Button */}
             <form
@@ -488,15 +508,16 @@ export const LiveBroadcastScreen: React.FC<LiveBroadcastScreenProps> = ({
                   placeholder={`Pangutana kay ${vendor.name}...`}
                   className="bg-transparent text-[12px] text-white placeholder:text-white/60 focus:outline-none w-full"
                 />
-                <button
+            
+              </div>
+              <button
                   type="submit"
                   className="text-[#ffdea9] hover:text-white active:scale-90"
                 >
                   <span className="material-symbols-outlined text-[18px]">send</span>
                 </button>
-              </div>
 
-              <button
+              {/* <button
                 type="button"
                 onClick={triggerHeart}
                 className="w-9 h-9 rounded-full bg-[#9a2300] flex items-center justify-center text-white active:scale-75 transition-transform shrink-0 shadow-md ring-2 ring-white/20"
@@ -504,12 +525,12 @@ export const LiveBroadcastScreen: React.FC<LiveBroadcastScreenProps> = ({
                 <span className="material-symbols-outlined text-[20px] material-symbols-fill">
                   thumb_up
                 </span>
-              </button>
+              </button> */}
             </form>
           </div>
         </div>
 
-        {/* Live Stream Footnote */}
+        {/* Live Stream Footnote
         <div className="px-4 py-3 flex items-center justify-between text-[#8ed6aa]">
           <div className="flex items-center gap-1.5">
             <span className="material-symbols-outlined text-[16px] text-[#8ed6aa]">
@@ -525,7 +546,7 @@ export const LiveBroadcastScreen: React.FC<LiveBroadcastScreenProps> = ({
               15 min delivery via Tricycle
             </span>
           </div>
-        </div>
+        </div> */}
       </main>
 
       {/* Order Confirmation Modal Toast */}
@@ -548,11 +569,11 @@ export const LiveBroadcastScreen: React.FC<LiveBroadcastScreenProps> = ({
       )}
 
       {/* Share Toast */}
-      {showShareToast && (
+      {/* {showShareToast && (
         <div className="fixed top-20 left-1/2 -translate-x-1/2 z-50 bg-black/80 backdrop-blur-md text-white px-4 py-2 rounded-full text-[12px] font-bold shadow-lg animate-in fade-in">
           Link copied! Share Ate Lorna's Latag to Facebook &amp; Messenger
         </div>
-      )}
+      )} */}
 
       {/* Stall Bag Drawer */}
       {showStallSheet && (

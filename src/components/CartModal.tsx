@@ -88,7 +88,7 @@ export const CartModal: React.FC<CartModalProps> = ({
                 onClick={onClose}
                 className="mt-2 px-4 py-2 bg-[#004328] text-white rounded-xl text-[13px] font-bold"
               >
-                Tan-aw ug Palaliton
+                Tan-aw ug Paliton
               </button>
             </div>
           ) : (
